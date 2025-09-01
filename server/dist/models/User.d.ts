@@ -7,7 +7,9 @@ declare const UserModel: mongoose.Model<{
     dob: NativeDate;
     email: string;
     isverified: boolean;
+    isWelcomeSent: boolean;
     verificationCode?: string | null;
+    verificationCodeExpiry?: NativeDate | null;
 }, {}, {}, {}, mongoose.Document<unknown, {}, {
     createdAt: NativeDate;
     updatedAt: NativeDate;
@@ -16,7 +18,9 @@ declare const UserModel: mongoose.Model<{
     dob: NativeDate;
     email: string;
     isverified: boolean;
+    isWelcomeSent: boolean;
     verificationCode?: string | null;
+    verificationCodeExpiry?: NativeDate | null;
 }, {}, {
     timestamps: true;
 }> & {
@@ -27,7 +31,9 @@ declare const UserModel: mongoose.Model<{
     dob: NativeDate;
     email: string;
     isverified: boolean;
+    isWelcomeSent: boolean;
     verificationCode?: string | null;
+    verificationCodeExpiry?: NativeDate | null;
 } & {
     _id: mongoose.Types.ObjectId;
 } & {
@@ -42,7 +48,9 @@ declare const UserModel: mongoose.Model<{
     dob: NativeDate;
     email: string;
     isverified: boolean;
+    isWelcomeSent: boolean;
     verificationCode?: string | null;
+    verificationCodeExpiry?: NativeDate | null;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
     createdAt: NativeDate;
     updatedAt: NativeDate;
@@ -51,7 +59,9 @@ declare const UserModel: mongoose.Model<{
     dob: NativeDate;
     email: string;
     isverified: boolean;
+    isWelcomeSent: boolean;
     verificationCode?: string | null;
+    verificationCodeExpiry?: NativeDate | null;
 }>, {}, mongoose.ResolveSchemaOptions<{
     timestamps: true;
 }>> & mongoose.FlatRecord<{
@@ -62,7 +72,9 @@ declare const UserModel: mongoose.Model<{
     dob: NativeDate;
     email: string;
     isverified: boolean;
+    isWelcomeSent: boolean;
     verificationCode?: string | null;
+    verificationCodeExpiry?: NativeDate | null;
 }> & {
     _id: mongoose.Types.ObjectId;
 } & {
