@@ -16,9 +16,15 @@ import NoteRoutes from './routes/NoteRoutes';
 
 const app = express();
 app.use(cors({
-    origin: '*', 
-    credentials: true
-})); 
+  origin: [
+    "http://localhost:5173",                 // local 
+    "https://notes-app-topaz-two.vercel.app" // deployed frontend
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+}));
+
 app.use(express.json());
 app.use(cookieParser())
 app.use("/api", dashboardRoutes);
