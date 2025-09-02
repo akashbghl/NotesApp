@@ -52,7 +52,7 @@ const Signup = () => {
 
       if (res.data.success) {
         toast.success('Signup Successful');
-        navigate('/dashboard');
+        navigate('/sign-in');
       } else {
         toast.error(res.data.message || 'Invalid OTP');
       }
