@@ -48,7 +48,6 @@ const Dashboard = () => {
         { title, description },
         { withCredentials: true }
       );
-      console.log(res);
       setNotes((prev) => [res.data.note, ...prev]);
       setTitle("");
       setDescription("");
