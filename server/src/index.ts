@@ -15,10 +15,22 @@ import dashboardRoutes from "./routes/dashboard";
 import NoteRoutes from './routes/NoteRoutes';
 
 const app = express();
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://notes-app-topaz-two.vercel.app'
+];
+
 app.use(cors({
-    origin: '*', 
-    credentials: true
-})); 
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
+
 app.use(express.json());
 app.use(cookieParser())
 app.use("/api", dashboardRoutes);
