@@ -28,7 +28,7 @@ const Dashboard = () => {
 
   const fetchNotes = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/notes", { withCredentials: true });
+      const res = await axios.get("https://notesapp-backend-ppzh.onrender.com/notes", { withCredentials: true });
       setNotes(res.data.notes);
     } catch (err) {
       console.error(err);
@@ -44,7 +44,7 @@ const Dashboard = () => {
     setNoteLoading(true);
     try {
       const res = await axios.post(
-        "http://localhost:5000/notes/create",
+        "https://notesapp-backend-ppzh.onrender.com/notes/create",
         { title, description },
         { withCredentials: true }
       );
@@ -62,7 +62,7 @@ const Dashboard = () => {
 
   const handleDelete = async (id: string) => {
     try {
-      await axios.delete(`http://localhost:5000/notes/${id}`, { withCredentials: true });
+      await axios.delete(`https://notesapp-backend-ppzh.onrender.com/notes/${id}`, { withCredentials: true });
       setNotes((prev) => prev.filter((note) => note._id !== id));
       toast.success("Note deleted");
     } catch (err) {
@@ -72,7 +72,7 @@ const Dashboard = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/auth/logout", {
+      const res = await axios.get("https://notesapp-backend-ppzh.onrender.com/auth/logout", {
         withCredentials: true,
       });
       toast.success(res.data.message);
@@ -84,7 +84,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/dashboard", { withCredentials: true })
+      .get("https://notesapp-backend-ppzh.onrender.com/api/dashboard", { withCredentials: true })
       .then((res) => {
         setUser(res.data.user);
         setPageLoading(false);

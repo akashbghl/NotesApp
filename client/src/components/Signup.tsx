@@ -25,7 +25,7 @@ const Signup = () => {
     if (e) e.preventDefault();
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:5000/auth/signup', formData);
+      const res = await axios.post('https://notesapp-backend-ppzh.onrender.com/auth/signup', formData);
       if (res.data.success) {
         toast.success('OTP sent to your Email');
         setOtpInput(true);
@@ -45,7 +45,7 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:5000/auth/verify-otp', {
+      const res = await axios.post('https://notesapp-backend-ppzh.onrender.com/auth/verify-otp', {
         email: formData.email,
         code: otp.code, 
       });
