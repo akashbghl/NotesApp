@@ -17,8 +17,19 @@ const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const dashboard_1 = __importDefault(require("./routes/dashboard"));
 const NoteRoutes_1 = __importDefault(require("./routes/NoteRoutes"));
 const app = (0, express_1.default)();
+const allowedOrigins = [
+    'http://localhost:5173',
+    'https://notes-app-topaz-two.vercel.app'
+];
 app.use((0, cors_1.default)({
-    origin: 'http://localhost:5173',
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        }
+        else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     credentials: true
 }));
 app.use(express_1.default.json());
