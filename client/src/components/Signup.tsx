@@ -47,7 +47,7 @@ const Signup = () => {
     try {
       const res = await axios.post('https://notesapp-backend-ppzh.onrender.com/auth/verify-otp', {
         email: formData.email,
-        code: otp.code, 
+        code: otp.code,
       });
 
       if (res.data.success) {
@@ -96,15 +96,23 @@ const Signup = () => {
                   className="w-full border border-gray-400 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   required
                 />
-                <input
+                <div className='relative'>
+                  <input
                   name="dob"
                   placeholder="Date of Birth"
                   type="date"
                   value={formData.dob}
                   onChange={handleChange}
-                  className="w-full border border-gray-400 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  className="peer block w-full rounded-md border border-gray-300 px-2 pt-5 pb-2 text-sm focus:outline-none text-gray-900 focus:border-blue-500 focus:ring-1 focus:ring-blue-400"
                   required
                 />
+                <label
+                  htmlFor="dob"
+                  className="absolute left-2 top-2 text-gray-500 text-xs transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-xs peer-focus:text-blue-500"
+                >
+                  Date of Birth
+                </label>
+                </div>
                 <input
                   name="email"
                   type="email"
@@ -147,8 +155,8 @@ const Signup = () => {
               {isLoading
                 ? 'Please wait...'
                 : otpInput
-                ? 'Verify & Sign Up'
-                : 'Get OTP'}
+                  ? 'Verify & Sign Up'
+                  : 'Get OTP'}
             </button>
           </form>
 

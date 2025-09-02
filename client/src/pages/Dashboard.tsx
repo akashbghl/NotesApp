@@ -91,7 +91,7 @@ const Dashboard = () => {
         fetchNotes();
       })
       .catch(() => {
-        navigate("/sign-in");
+        navigate("/sign-up");
       });
   }, [navigate]);
 
